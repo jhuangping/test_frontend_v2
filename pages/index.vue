@@ -5,7 +5,8 @@
       <div class="search | flex justify-end items-center mb-4">
         <EBtn :text="t('add')" color="warn" @click="mode = 'add'; form.name = ''; form.age = ''; isLightbox = true" />
       </div>
-      <ETable :columns="columns" :data="appStore.user.list" />
+      <ETable :columns="columns" :data="paginatedData" />
+      <EPagination v-if="totalPages !== 1" v-model:currentPage="currentPage" :totalPages="totalPages" />
     </div>
     <ELightbox v-model:visible="isLightbox">
       <h4 class="text-xl font-bold mb-4">
@@ -49,6 +50,16 @@ const form = reactive({
 })
 
 const hasSubmitted = ref(false)
+
+const currentPage = ref(1)
+const pageSize = 10
+
+const totalPages = computed(() => Math.ceil(appStore.user.list.length / pageSize));
+
+const paginatedData = computed(() => {
+  const start = (currentPage.value - 1) * pageSize;
+  return appStore.user.list.slice(start, start + pageSize);
+})
 
 const nameError = computed(() => {
   if (!form.name.trim()) return t('Name is required')
