@@ -1,4 +1,13 @@
 {
-  "welcome": "歡迎",
-  "test": "測試"
+  "language": "語言",
+  
+  "name": "名字",
+  "age": "年齡",
+  "operate": "操作",
+
+  "add": "新增",
+  "edit": "修改",
+  "delete": "刪除",
+  "cancel": "取消",
+  "confirm": "確定"
 }

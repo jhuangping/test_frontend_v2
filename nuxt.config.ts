@@ -27,6 +27,9 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    bundle: {
+      optimizeTranslationDirective: false
+    },
     locales: [
       {
         code: 'zh-TW',
@@ -90,5 +93,8 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['~/assets/css/style.scss'],
+  css: [
+    '~/assets/css/reset.scss',
+    '~/assets/css/style.scss'
+  ],
 })

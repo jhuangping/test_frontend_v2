@@ -1,4 +1,13 @@
 {
-  "welcome": "Welcome",
-  "test": "Test"
+  "language": "language",
+  
+  "name": "name",
+  "age": "age",
+  "operate": "operate",
+
+  "add": "add",
+  "edit": "edit",
+  "delete": "delete",
+  "cancel": "cancel",
+  "confirm": "confirm"
 }

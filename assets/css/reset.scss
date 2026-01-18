@@ -1,0 +1,202 @@
+@-ms-viewport{
+  width: device-width;
+}
+
+*{
+  text-rendering: geometricPrecision; // 幾何精度渲染更漂亮的文字
+  box-sizing: border-box;
+  &::before, &::after{
+    box-sizing: border-box;
+    border: 0 solid;
+  }
+}
+
+html{
+  width: 100%;
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -ms-overflow-style: scrollbar;
+}
+
+// body, div, dl, menu, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, button, textarea, p, blockquote, th, td, figure
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  -moz-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-tap-highlight-color: transparent;
+
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+
+  // 抗鋸齒字體的絲滑感看起來更棒
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  // iphone X -------------------------------------------------------------------
+  // <meta name="viewport" content="width=device-width, viewport-fit=cover">，新增 viewport-fit=cover"
+  // XXX: 待觀察
+  // 兼容 iOS < 11.2
+  padding-top: constant(safe-area-inset-top);
+  padding-right: constant(safe-area-inset-right);
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-left: constant(safe-area-inset-left);
+  // 兼容 iOS >= 11.2
+  padding-left: env(safe-area-inset-left);
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  display: block;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+abbr[title] {
+  text-decoration: underline dotted
+}
+
+// b,
+// strong {
+//   font-weight: bolder
+// }
+
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0
+}
+
+:-moz-ui-invalid {
+  box-shadow: none
+}
+
+progress {
+  vertical-align: baseline
+}
+
+[type=search] {
+  appearance: textfield;
+  outline-offset: -2px
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit
+}
+
+// h1, h2, h3, h4, h5, h6 {
+//   font-size: 100%;
+//   font-weight: inherit;
+// }
+
+input, button, textarea,select, optgroup, option{
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+button{
+  background: transparent;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-indent: 0;
+  border-color: inherit;
+}
+
+// purpose To enable resizing for IE
+// branch For IE6-Win, IE7-Win
+input, button, textarea, select{
+  *font-size: 100%;
+}
+// ol,ul,li,menu
+menu{
+  list-style: none;
+}
+
+a{
+  color: inherit;
+  text-decoration: none ;
+  transition: all .5s;
+  cursor: pointer;
+  &:active,&:hover,&:focus{
+    outline: 0;
+    text-decoration: none;
+  }
+}
+
+*:focus, input, input:focus, textarea, textarea:focus, button, button:focus, select, select:focus{
+  outline: none;
+}
+
+a,
+button {
+  touch-action: manipulation
+}
+
+[role=button],
+summary,
+:where(button, [type=button]):not([disabled]) {
+  cursor: pointer;
+  user-select: none
+}
+
+// HTML5 display definitions --------------------------------------------------
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary, main, iframe{
+  display: block;
+}
+
+iframe{
+  border: none;
+}
+
+audio, canvas, video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden]{
+  display: none;
+}

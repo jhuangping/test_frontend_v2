@@ -1,5 +1,6 @@
 <template>
-  <button>
+  <button class="e-btn px-2 py-1 rounded-md" :class="`e-btn--${props.color || 'success'}`">
+    {{ props.text }}
     <slot />
   </button>
 </template>
@@ -15,16 +16,49 @@ const props = withDefaults(defineProps<Props>(), {})
 
 <style scoped lang="scss">
 .e-btn {
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+  border: none;
+  transition: all .5s ease;
+  isolation: isolate;
+
+  // border-radius: 5px;
   // success 綠
-  &-success {
+  &--success {
+    color: #fff;
+    background: #0D861C;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: #0a6b15;
+      }
+    }
   }
 
   // error 紅
-  &-error {
+  &--error {
+    color: #fff;
+    background: #AD1C1F;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: #8a1517;
+      }
+    }
   }
 
   // warn 黃
-  &-warn {
+  &--warn {
+    background: #FCC134;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background: #e6a82e;
+      }
+    }
   }
 }
 </style>
