@@ -125,12 +125,12 @@ const closeLightbox = () => {
 
 const columns = [
   { key: 'id', label: '#', class: 'w-10% text-center' },
-  { key: 'name', label: t('name'), class: 'w-45% text-center' },
-  { key: 'age', label: t('age'), class: 'w-45% text-center' },
+  { key: 'name', label: t('name'), class: 'w-[calc(90%-200px)] text-center' },
+  { key: 'age', label: t('age'), class: 'w-[80px] text-center' },
   {
     key: 'actions',
     label: t('operate'),
-    class: 'w-50',
+    class: 'operate w-[120px]',
     actions: [
       { text: t('edit'), handler: (item: any) => { mode.value = 'edit'; editingUser.value = item; form.name = item.name; form.age = String(item.age); isLightbox.value = true } },
       { text: t('delete'), color: 'error' as const, handler: (item: any) => { mode.value = 'delete'; editingUser.value = item; isLightbox.value = true } }
@@ -154,7 +154,7 @@ onMounted(async () => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .content {
@@ -165,5 +165,22 @@ onMounted(async () => {
   border: 1px solid #ededed;
   border-radius: 5px;
   padding: 20px;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 30px);
+  }
+}
+
+.operate {
+  @media (max-width: 768px) {
+    width: 60px;
+
+    @at-root {
+      td div{
+        flex-direction: column;
+      }
+    }
+  }
+  
 }
 </style>

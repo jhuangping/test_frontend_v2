@@ -22,7 +22,9 @@ onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside)
 })
 
-const languages = [
+type LocaleCode = 'zh-TW' | 'en-US'
+
+const languages: { code: LocaleCode; label: string }[] = [
   { code: 'zh-TW', label: '繁體中文' },
   { code: 'en-US', label: 'English' }
 ]
@@ -39,6 +41,7 @@ const languages = [
 
 <style lang="scss" scoped>
 .lang {
+  z-index: 10;
   transition: background .5s ease;
 
   &__list {
